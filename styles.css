@@ -1,23 +1,19 @@
 .body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
 
 .header {
   width: 100%;
-  height: 5vh;
+  height: 50px;
   position: absolute;
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .main {
-  height: 95vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .block {
@@ -29,6 +25,7 @@
 .left {
   background: #ffffff;
   display: flex;
+  padding: 20vh 0;
 }
 
 .right {
@@ -39,7 +36,8 @@
 .right-content {
   padding-left: 10%;
   padding-right: 10%;
-  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .right-content a:link {
@@ -61,7 +59,7 @@
 .footer {
   background: black;
   width: 100%;
-  height: 5vh;
+  height: 50px;
   text-align: center;
   color: #ffffff;
 }
@@ -83,8 +81,8 @@
 }
 
 .logo {
-  height: 450px;
-  width: 450px;
+  height: 100px;
+  width: 300px;
   display: flex;
   margin: auto;
 }
@@ -110,7 +108,7 @@ nav {
 nav > ul {
   margin: 0;
   list-style: none;
-  padding-right: 5em;
+  padding-right: 1em;
   text-align: right;
 }
 
@@ -121,4 +119,172 @@ nav > ul > li {
   align-items: center;
   padding-left: 0.5em;
   padding-right: 0.5em;
+}
+
+.menu-toggle {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: block;
+  width: 30px;
+  height: 26px;
+  background: transparent;
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  color: #9aeba6;
+  font-size: 0;
+  transition: all 0.25s ease-in-out;
+  margin: 1em;
+  z-index: 2;
+}
+
+.menu-toggle:before, .menu-toggle:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease-in-out;
+}
+
+.menu-toggle:hover {
+  color: #9aeba6;
+}
+
+.menu-toggle.is-active {
+  border-color: transparent;
+  color: #000000;
+}
+.menu-toggle.is-active:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.menu-toggle.is-active:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.nav-menu {
+  display: none;
+}
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: fixed; /* Stay in place */
+  z-index: -1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: #9aeba6; /* Black fallback color */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #ffffff;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  .main {
+    height: 95vh;
+    flex-direction: row;
+  }
+
+  nav > ul {
+    margin: 0;
+    list-style: none;
+    padding-right: 5em;
+    text-align: right;
+  }
+
+  .left {
+    padding: 0;
+  }
+
+  .logo {
+    height: 130px;
+    width: 390px;
+  }
+
+  .right-content {
+    margin: auto;
+  }
+
+  .header, .footer {
+    height: 5vh;
+    text-align: center;
+  }
+
+  .header {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: block;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .logo {
+    height: 120px;
+    width: 360px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .logo {
+    height: 150px;
+    width: 430px;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .logo {
+    height: 160px;
+    width: 450px;
+  }
 }

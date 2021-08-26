@@ -36,19 +36,33 @@
     <!-- Twitter -->
     <meta name="twitter:title" content="GoodGut">
 
+    <!-- Script -->
 </head>
+
 
 <body class="body">
     <header class="header">
-        <nav>
+        <nav class="nav-menu">
             <ul>
-                <li><a href="#"><b>Home</b></a></li>
+                <li><a href="#"><b>Strona główna</b></a></li>
             </ul>
         </nav>
+        <button id="hamburger" class="menu-toggle"></button>
+        <script type="text/javascript" src="./script.js"></script>
     </header>
     <main class="main">
+        <section>
+            <div id="overlay" class="overlay">
+              
+                <!-- Overlay content -->
+                <div class="overlay-content">
+                  <a href="#" onclick="closeNav()">Strona główna</a>
+                </div>
+              
+              </div>
+        </section>
         <section class="block left">
-            <img alt="logo" src="./logo.png" class="logo"></img>
+            <img alt="logo" src="logo.png" class="logo"></img>
         </section>
         <section class="block right">
             <div class="right-content">
