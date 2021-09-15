@@ -2,18 +2,20 @@
   width: 100%;
   height: 100%;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .header {
   width: 100%;
-  height: 50px;
-  position: absolute;
+  position: fixed;
+  background: #fff;
+  z-index: 2;
 }
 
 .main {
   display: flex;
   flex-direction: column;
+  padding-top: 80px;
 }
 
 .block {
@@ -45,7 +47,7 @@
 }
 
 .right-content a:visited {
-  color: #35C0ED;
+  color: #35c0ed;
 }
 
 .right-content a:hover {
@@ -53,15 +55,19 @@
 }
 
 .right-content a:active {
-  color: #35C0ED;
+  color: #35c0ed;
 }
 
 .footer {
-  background: black;
+  background: #0d3b6e;
   width: 100%;
-  height: 50px;
+  height: 80px;
   text-align: center;
   color: #ffffff;
+}
+
+.footer > p {
+  font-size: larger;
 }
 
 .footer a:link {
@@ -69,7 +75,7 @@
 }
 
 .footer a:visited {
-  color: #35C0ED;
+  color: #35c0ed;
 }
 
 .footer a:hover {
@@ -77,7 +83,7 @@
 }
 
 .footer a:active {
-  color: #35C0ED;
+  color: #35c0ed;
 }
 
 .logo {
@@ -85,6 +91,13 @@
   width: 300px;
   display: flex;
   margin: auto;
+}
+
+.logo-header {
+  height: 80px;
+  display: flex;
+  margin: auto;
+  margin-left: -40px;
 }
 
 p {
@@ -95,6 +108,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .height100Percent {
@@ -110,15 +124,35 @@ nav > ul {
   list-style: none;
   padding-right: 1em;
   text-align: right;
+  display: inline;
 }
 
 nav > ul > li {
-  border-top: solid;
+  border-top: solid #0d3b6e;
   height: 40px;
   display: flex;
   align-items: center;
   padding-left: 0.5em;
   padding-right: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+nav > ul > li:hover {
+  border-top: solid #0d3b6e;
+  color: #fff;
+  background-color: #9aeba6;
+  transition: background-color 0.5s ease;
+}
+
+nav > ul > li > a {
+  color: #0d3b6e;
+  text-decoration: unset;
+}
+
+nav > ul > li:hover > a {
+  color: #fff;
+  text-decoration: unset;
 }
 
 .menu-toggle {
@@ -126,8 +160,8 @@ nav > ul > li {
   cursor: pointer;
   outline: none;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 27px;
+  right: 27px;
   display: block;
   width: 30px;
   height: 26px;
@@ -138,10 +172,11 @@ nav > ul > li {
   font-size: 0;
   transition: all 0.25s ease-in-out;
   margin: 1em;
-  z-index: 2;
+  z-index: 5;
 }
 
-.menu-toggle:before, .menu-toggle:after {
+.menu-toggle:before,
+.menu-toggle:after {
   content: "";
   display: block;
   width: 100%;
@@ -175,7 +210,7 @@ nav > ul > li {
 
 /* The Overlay (background) */
 .overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -191,7 +226,7 @@ nav > ul > li {
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
-  top: 25%; /* 25% from the top */
+  top: 15%; /* 15% from the top */
   width: 100%; /* 100% width */
   text-align: center; /* Centered text/links */
   margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
@@ -202,15 +237,16 @@ nav > ul > li {
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
-  color: #ffffff;
+  color: #2d4d76;
   display: block; /* Display block instead of inline */
   transition: 0.3s; /* Transition effects on hover (color) */
 }
 
-
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
+  .overlay a {
+    font-size: 20px;
+  }
   .overlay .closebtn {
     font-size: 40px;
     top: 15px;
@@ -218,37 +254,18 @@ nav > ul > li {
   }
 }
 
-
-@media only screen and (min-width: 768px) {
-  .main {
-    height: 95vh;
-    flex-direction: row;
-  }
-
+@media only screen and (min-width: 1200px) {
   nav > ul {
     margin: 0;
     list-style: none;
     padding-right: 5em;
     text-align: right;
+    display: flex;
   }
 
-  .left {
-    padding: 0;
-  }
-
-  .logo {
-    height: 130px;
-    width: 390px;
-  }
-
-  .right-content {
-    margin: auto;
-  }
-
-  .header, .footer {
-    height: 5vh;
-    text-align: center;
-  }
+ .footer > p {
+   flex-direction: row;
+ }
 
   .header {
     display: flex;
@@ -268,23 +285,398 @@ nav > ul > li {
   }
 }
 
-@media only screen and (min-width: 480px) {
-  .logo {
-    height: 120px;
-    width: 360px;
-  }
+.mySlides {
+  display: none;
+  transition: opacity ease 1s;
 }
 
-@media only screen and (min-width: 1024px) {
-  .logo {
-    height: 150px;
-    width: 430px;
-  }
+.mobile-slides {
+  display: none;
+  transition: opacity ease 1s;
 }
 
-@media only screen and (min-width: 1300px) {
-  .logo {
-    height: 160px;
-    width: 450px;
-  }
+.left-arrow {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  width: 50px;
+  padding-left: 20px;
+  margin-left: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.right-arrow {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  width: 50px;
+  padding-right: 20px;
+  margin-right: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.left-arrow,
+.right-arrow,
+.badge {
+  cursor: pointer;
+}
+.left-arrow,
+.right-arrow {
+  color: #000000;
+}
+.arrow-hover:hover {
+  color: #9aeba6;
+}
+.badge {
+  height: 17px;
+  width: 18px;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+}
+
+.badge:hover {
+  border: 1px solid #9aeba6;
+}
+
+.selected-badge {
+  background-color: #9aeba6;
+}
+
+.badge-container {
+  height: 17px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  margin: 15px;
+}
+
+.dots-container {
+}
+
+.carousel {
+  width: 100%;
+  position: relative;
+}
+
+.introduction {
+  background-color: #fff;
+  padding-inline: 20px;
+}
+
+.introduction > h1 {
+  font-size: xx-large;
+  color: #0d3b6e;
+  text-align: center;
+}
+
+.introduction-details {
+  background-color: #cbdee4;
+  padding: 20px;
+  padding-inline: 30px;
+  color: #0d3b6e;
+}
+
+.introduction-details > h1 {
+  font-size: xx-large;
+  color: #0d3b6e;
+  text-align: center;
+}
+
+.partners {
+  background-color: #fff;
+  text-align: center;
+  font-size: large;
+  color: #0d3b6e;
+}
+
+.partners > h1 {
+  font-size: xx-large;
+}
+
+.partners .logos {
+  display: flex;
+  flex-direction: row;
+  margin-inline: auto;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.logo {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.logo.pw {
+  height: auto;
+  width: 150px;
+}
+
+.logo.mini {
+  height: auto;
+  width: 150px;
+}
+
+.logo.wum {
+  height: auto;
+  width: 150px;
+}
+
+.logo.uck {
+  height: auto;
+  width: 150px;
+}
+
+.contact {
+  color: #0d3b6e;
+  background-color: #9aeba6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 15px;
+  font-size: large;
+}
+
+.contact > h1 {
+  font-size: xx-large;
+}
+
+.contact > a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #0d3b6e;
+  font-size: larger;
+}
+
+.gray-background {
+  background-color: #cbdee4;
+}
+
+.iphone-x .content > img {
+  width: 100%;
+  border-radius: 40px;
+  max-height: 780px;
+}
+
+.iphone-x {
+  position: relative;
+  margin: 40px auto;
+  max-width: 360px;
+  max-height: 780px;
+  width: calc(100% - 40px);
+  background-color: #fff;
+  border-radius: 40px;
+  box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919,
+    0px 0px 0px 20px #111;
+}
+.iphone-x:before,
+.iphone-x:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.iphone-x:after {
+  bottom: 7px;
+  width: 140px;
+  height: 4px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+.iphone-x:before {
+  top: 0px;
+  width: 56%;
+  height: 25px;
+  background-color: #1f1f1f;
+  border-radius: 0px 0px 40px 40px;
+  z-index: 1;
+}
+.iphone-x i,
+.iphone-x b,
+.iphone-x s,
+.iphone-x span {
+  position: absolute;
+  display: block;
+  color: transparent;
+}
+.iphone-x i {
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 6px);
+  height: 8px;
+  width: 15%;
+  background-color: #101010;
+  border-radius: 8px;
+  box-shadow: inset 0px -3px 3px 0px rgba(256, 256, 256, 0.2);
+}
+.iphone-x b {
+  left: 10%;
+  top: 0px;
+  transform: translate(180px, 4px);
+  width: 12px;
+  height: 12px;
+  background-color: #101010;
+  border-radius: 12px;
+  box-shadow: inset 0px -3px 2px 0px rgba(256, 256, 256, 0.2);
+}
+.iphone-x b:after {
+  content: "";
+  position: absolute;
+  background-color: #2d4d76;
+  width: 6px;
+  height: 6px;
+  top: 2px;
+  left: 2px;
+  top: 3px;
+  left: 3px;
+  display: block;
+  border-radius: 4px;
+  box-shadow: inset 0px -2px 2px rgba(0, 0, 0, 0.5);
+}
+.iphone-x s {
+  top: 50px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  font-size: 70px;
+  font-weight: 100;
+  padding-top: 60px;
+}
+.iphone-x span {
+  bottom: 50px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  left: 30px;
+}
+.iphone-x span + span {
+  left: auto;
+  right: 30px;
+}
+
+.mobile-version {
+  text-align: center;
+  color: #0d3b6e;
+}
+
+.mobile-version > h1 {
+  font-size: xx-large;
+}
+
+.functionalities > ul {
+  display: block;
+  margin-top: 0;
+  text-align: initial;
+}
+
+.functionalities > ul li {
+  display: block;
+  position: relative;
+  font-size: larger;
+}
+
+.functionalities > ul li:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.functionalities > ul li:before {
+  content: "";
+  position: absolute;
+  top: 1.2em;
+  left: -30px;
+  margin-top: -0.9em;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #2d4d76;
+  /* background: linear-gradient(45deg, #2d4d76, #35c0ed); */
+}
+
+.functionalities {
+  text-align: center;
+  color: #0d3b6e;
+  padding-inline: 20px;
+  background: #9aeba6;
+  display: flex;
+  flex-direction: column;
+}
+
+.functionalities > ul {
+  margin-bottom: 20px;
+  margin-inline: auto;
+}
+
+.demo {
+  text-align: center;
+  color: #0d3b6e;
+  padding-inline: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.demo > h1 {
+  font-size: xx-large;
+  display: flex;
+  flex-direction: column;
+}
+
+.demo > h1 a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color:#0d3b6e;
+  text-decoration: none;
+}
+
+.demo > ul {
+  text-align: initial;
+  /* margin-y: ; */
+  margin-bottom: 20px;
+  margin-inline: auto;
+}
+
+.demo > ul li {
+  font-size: larger;
+}
+
+.demo > ul li a {
+  color: #0d3b6e;
+  text-decoration: none;
+}
+
+.demo > ul li:before {
+  content: "";
+  position: absolute;
+  top: 1.2em;
+  left: -30px;
+  margin-top: -0.9em;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #0d3b6e;
+	padding: 3px 0px 3px 30px;
+	list-style: none;
 }
