@@ -37,6 +37,7 @@
     <meta name="twitter:title" content="GoodGut">
 
     <!-- Script -->
+    <script type="text/javascript" src="./scroll-entrance.min.js"></script>
 </head>
 
 
@@ -46,13 +47,13 @@
 
         <nav class="nav-menu">
             <ul>
-                <li><a onclick="onStartClick()"><b>Start</b></a></li>
-                <li><a onclick="onAboutClick()"><b>O aplikacji</b></a></li>
-                <li><a onclick="onFunctionalitiesClick()"><b>Główne funkcjonalności</b></a></li>
-                <li><a onclick="onMobileClick()"><b>Wersja mobilna</b></a></li>
-                <li><a onclick="onDemoClick()"><b>Nagrania</b></a></li>
-                <li><a onclick="onPartnersClick()"><b>Partnerzy</b></a></li>
-                <li><a onclick="onContactClick()"><b>Kontakt</b></a></li>
+                <li><a onclick="onStartClick()"><b class="clickable">Start</b></a></li>
+                <li><a onclick="onAboutClick()"><b class="clickable">O aplikacji</b></a></li>
+                <li><a onclick="onFunctionalitiesClick()"><b class="clickable">Główne funkcjonalności</b></a></li>
+                <li><a onclick="onMobileClick()"><b class="clickable">Wersja mobilna</b></a></li>
+                <li><a onclick="onDemoClick()"><b class="clickable">Nagrania</b></a></li>
+                <li><a onclick="onPartnersClick()"><b class="clickable">Partnerzy</b></a></li>
+                <li><a onclick="onContactClick()"><b class="clickable">Kontakt</b></a></li>
             </ul>
         </nav>
         <button id="hamburger" class="menu-toggle"></button>
@@ -77,11 +78,12 @@
         </section>
 
         <section id="introduction" class="introduction">
-            <h1>Aplikacja webowa dla personelu medycznego i pacjenta do wspomagania procedur domowego żywienia
+            <h1 class="desktop" data-entrance="fade" data-entrance-delay="100">Aplikacja webowa dla personelu medycznego
+                i pacjenta do wspomagania procedur domowego żywienia
                 dojelitowego</h1>
         </section>
 
-        <section class="carousel">
+        <section class="carousel desktop" data-entrance="fade">
             <img class="mySlides" src="assets/screenshots/desktop/Doctor-home.JPG" style="width:100%; display: block;">
             <img class="mySlides" src="assets/screenshots/desktop/Doctor-edit-success.JPG" style="width:100%">
             <img class="mySlides" src="assets/screenshots/desktop/qualification-card-print.JPG" style="width:100%">
@@ -105,7 +107,8 @@
         </section>
 
         <section id="introduction-details" class="introduction-details">
-            <p>W ramach pracy dyplomowej prowadzonej na Wydziale Matematyki i Nauk Informacyjnych PW przy ścisłej
+            <p class="desktop" style="font-size: 1.2em;" data-entrance="from-left">W ramach pracy dyplomowej prowadzonej na Wydziale Matematyki i
+                Nauk Informacyjnych PW przy ścisłej
                 współpracy w Katedrą i Kliniką Chirurgii Ogólnej, Gastroenterologicznej i Onkologicznej WUM została
                 utworzona aplikacja webowa, która ma wspomóc zarówno pracę personelu medycznego w ramach obowiązków
                 wynikających z programu domowego żywienia dojelitowego, jak i codziennego raportowania przez pacjentów
@@ -118,8 +121,8 @@
         </section>
 
         <section id="functionalities" class="functionalities">
-            <h1>Główne funkcjonalności</h1>
-            <ul>
+            <h1 class="desktop" data-entrance="from-right">Główne funkcjonalności</h1>
+            <ul class="desktop" data-entrance="from-right">
                 <li>trzy rodzaje użytkowników: pacjent, lekarz, administrator</li>
                 <li>przechowywanie informacji o pacjentach i generowanie wypełnionych formularzy do druku zgodnych z
                     wymaganiami NFZ</li>
@@ -129,9 +132,9 @@
             </ul>
         </section>
 
-        <section id="mobile-version" class="mobile-version">
+        <section id="mobile-version" class="mobile-version" data-entrance="fade">
             <h1>Wersja mobilna</h1>
-            <div class="iphone-x">
+            <div class="iphone-x scaled">
                 <section class="content carousel">
                     <img class="mobile-slides" src="assets/screenshots/mobile/doctor/patients-list.jpg"
                         style="display: block;">
@@ -149,9 +152,10 @@
         </section>
 
         <section id="demo" class="demo gray-background">
-            <h1><a href="https://youtube.com/playlist?list=PL3VNSZezwm453JW23ebW86hfaLnb-cXec">Nagrania&nbsp;<img
+            <h1 data-entrance="from-left"><a
+                    href="https://youtube.com/playlist?list=PL3VNSZezwm453JW23ebW86hfaLnb-cXec">Nagrania&nbsp;<img
                         src="assets/youtube.svg" height="40px"></a></h1>
-            <ul>
+            <ul data-entrance="from-left">
                 <li><a href="https://youtu.be/VyCXO7RE4U0">Profil lekarza - komputer</a></li>
                 <li><a href="https://youtu.be/-ddDIiARULI">Profil lekarza - smartfon</a></li>
                 <li><a href="https://youtu.be/wl8jUb9tMQ8">Profil pacjenta - komputer</a></li>
@@ -162,21 +166,23 @@
         </section>
 
         <section id="partners" class="partners">
-            <h1>Partnerzy</h1>
+            <h1 data-entrance="from-right">Partnerzy</h1>
             <div class="logos">
-                <a href="https://www.pw.edu.pl/"><img src="assets/partners/logo-pw.png" class="logo pw"></a>
-                <a href="https://ww2.mini.pw.edu.pl/"><img src="assets/partners/logo-mini-pw.png" class="logo mini"></a>
-                <a href="https://www.wum.edu.pl/"><img src="assets/partners/logo-wum.png" class="logo wum"></a>
-                <a href="https://uckwum.pl/"><img src="assets/partners/logo-uck-wum.png" class="logo uck"></a>
+                <a data-entrance="from-right" href="https://www.pw.edu.pl/"><img src="assets/partners/logo-pw.png" class="logo pw"></a>
+                <a data-entrance="from-right" href="https://ww2.mini.pw.edu.pl/"><img src="assets/partners/logo-mini-pw.png" class="logo mini"></a>
+                <a data-entrance="from-right" href="https://www.wum.edu.pl/"><img src="assets/partners/logo-wum.png" class="logo wum"></a>
+                <a data-entrance="from-right" href="https://uckwum.pl/"><img src="assets/partners/logo-uck-wum.png" class="logo uck"></a>
             </div>
         </section>
 
-        <section id="contact" class="contact">
-            <h1>Kontakt</h1>
+        <section id="contact" style="background-color: #9aeba6;">
+            <div data-entrance="fade" class="contact">
+                <h1>Kontakt</h1>
 
-            <a href="mailto: kontakt@goodgut.pl">kontakt@goodgut.pl</a>
-            <br>
-            <a href="tel: +48579079543">(+48) 579 079 543</a>
+                <a href="mailto: kontakt@goodgut.pl">kontakt@goodgut.pl</a>
+                <br>
+                <a href="tel: +48579079543">(+48) 579 079 543</a>
+            </div>
         </section>
     </main>
     <footer class="footer">

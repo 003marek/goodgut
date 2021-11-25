@@ -4,11 +4,11 @@ if (hamburger) {
     hamburger.classList.toggle('is-active');
 
     var overlay = document.getElementById("overlay");
-    if (overlay.style.opacity === "1") {
-      overlay.style.opacity = "0";
+    if (overlay.style.height === "100%") {
+      overlay.style.height = "0%";
       overlay.style.zIndex = "-1";
     } else {
-      overlay.style.opacity = "1";
+      overlay.style.height = "100%";
       overlay.style.zIndex = "2";
     }
   });
