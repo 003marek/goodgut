@@ -243,7 +243,9 @@ nav > ul > li:hover > a {
 }
 
 .scaled {
-  transform: scale(0.8); 
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
@@ -273,9 +275,9 @@ nav > ul > li:hover > a {
     margin-right: auto;
   }
 
- .footer > p {
-   flex-direction: row;
- }
+  .footer > p {
+    flex-direction: row;
+  }
 
   .header {
     display: flex;
@@ -295,7 +297,9 @@ nav > ul > li:hover > a {
   }
 
   .scaled {
-    transform: none; 
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
   }
 }
 
@@ -660,7 +664,7 @@ nav > ul > li:hover > a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color:#0d3b6e;
+  color: #0d3b6e;
   text-decoration: none;
 }
 
